@@ -24,7 +24,7 @@ namespace _33_PA09_Jae_Visual_Studios
 
             try
             {
-                if ((Rdb_USDollars.Checked == false) || (Rdb_JapaneseYen.Checked = false))
+                if ((Rdb_USDollars.Checked == false) && (Rdb_JapaneseYen.Checked = false) && (Rdb_MalaysianRinggit.Checked = false))
                 {
                     MessageBox.Show("Select at least one type of currency to convert");
                 }
@@ -44,6 +44,14 @@ namespace _33_PA09_Jae_Visual_Studios
 
                     Txt_Value.Text = ConvertedValue.ToString();
                 }
+
+                if (Rdb_MalaysianRinggit.Checked == true)
+                {
+                    AmountEntered = double.Parse(Txt_Amount.Text);
+                    ConvertedValue = AmountEntered * 3.01;
+
+                    Txt_Value.Text = ConvertedValue.ToString();
+                }
             }
 
             catch(FormatException)
@@ -58,6 +66,7 @@ namespace _33_PA09_Jae_Visual_Studios
             Txt_Value.Text = " ";
             Rdb_JapaneseYen.Checked = false;
             Rdb_USDollars.Checked = false;
+            Rdb_MalaysianRinggit.Checked = false;
         }
     }
 }
